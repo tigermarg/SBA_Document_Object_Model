@@ -1,0 +1,48 @@
+
+
+* {
+    box-sizing: border-box;
+  }
+
+:root {
+    --main-bg: silver;
+    --nav-menu-bg: black;
+}
+
+body {
+    font-family:'Courier New', Courier, monospace;
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 3rem auto;
+    color: white;
+}
+
+.body-background {
+    width: 100vw; 
+    height: 100vh; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;;
+}
+
+header, #nav-menu {
+	position: relative;
+}
+
+#nav-menu a:hover {
+    background-color: black; opacity: .5; ;
+}
+
+nav a {
+    line-height: 3rem;
+    padding: 0 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+}
+
+nav a.active {
+	background-color: white;
+	color: gray;
+}
