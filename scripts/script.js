@@ -6,6 +6,10 @@ let navLinks = [
     {text: 'news', href: '#'},
   ];
 
+let buttons = [
+  {text: 'sign-up', href: '#'},
+  {text: 'login', href: '#'}
+]
 
 let mainEl = document.querySelector(`main`) //Cache main element
     // console.log(mainEl[0])
@@ -15,7 +19,7 @@ bodyEl.style.backgroundImage = `url(./images/workout.jpg)` //Set body background
 bodyEl.classList.add(`body-background`) //Add body-background class
 
 mainEl.innerHTML = `<h1>No Pain No Gain</h1>` //Main element content
-
+mainEl.classList.add(`flex-ctr`) //Add flex-ctr class
 
 //Add menu bar
 let navMenuEl = document.getElementById(`nav-menu`) //Select & cache `nav-menu` id
@@ -25,8 +29,10 @@ navMenuEl.style.height = `100%`;  //Set height of nav element
 
 navMenuEl.style.backgroundColor = `var(--nav-menu-bg)` //Set nav menu background color
 
+navMenuEl.classList.add(`flex-around`)  //Add flex-around class to nav menu
 
-// Adding menu buttons
+
+// Adding menu links
 navLinks.forEach((link) => {  //Loop through navLinks array & for each `link` object:
 
     let menuLink = document.createElement(`a`);  //Create <a> element
@@ -35,9 +41,10 @@ navLinks.forEach((link) => {  //Loop through navLinks array & for each `link` ob
     menuLink.setAttribute(`href`, link.href);  //Add href attribute with value = href property of `link` object
     // console.log(menuLink)
 
-    menuLink.textContent = link.text;  //Set newLInk content = text property of `link` object
+    menuLink.textContent = link.text;  //Set newLink content = text property of `link` object
     // console.log(menuLink)
     navMenuEl.appendChild(menuLink) //Add new element to navMenuEl
+
 
 })
 
@@ -59,3 +66,29 @@ navMenuEl.addEventListener(`click`, (e) => { //Add `click` event to nav menu
                 i.classList.remove(`active`)}   //Remove `active` class
         })
   })
+
+// Adding Sign Up & Login buttons
+buttons.forEach((i) => {
+  console.log(i)
+    let button = document.createElement('button');
+    button.setAttribute(`href`, i.href);
+    button.textContent = i.text;
+    navMenuEl.appendChild(button);
+
+})
+
+
+//Form Validation
+
+let userInput = document.getElementById('username')
+
+let form = document.getElementsByTagName('form') //gives you array-like object
+
+userInput.addEventListener('change', ()=>{
+    console.log(`I am typing ${userInput.value}`)
+})
+
+form[0].addEventListener('submit', (e)=>{
+    e.preventDefault()
+    console.log(`Form Submitted`)
+})

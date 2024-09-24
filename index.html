@@ -8,11 +8,52 @@
     <script defer src="./scripts/script.js"></script>
 </head>
 <body>
-          <header>
+        <header>
             <nav id="nav-menu"></nav>
-          </header>
-          <main>
+        </header>
+        <main></main>
+          <center><form class="form" action="">
+              <h2>Start Your Fitness Journey Today!</h2>
+                <!-- pattern regex expressions says only accept upper/lowercase letters -->
+              <label>
+                <input id="firstName" type="text" placeholder="First Name" pattern="^[a-zA-Z]*$" minLength = "1" required /></label>
+              <br><br>
+              <label>
+                <input id="lastName" type="text" placeholder="Last Name" pattern="^[a-zA-Z]*$" minLength="1" required /></label>
+              <br><br>
+              <label>
+                <input type="email" placeholder="E-mail" required /></label>
+              <br><br>
+              <label>
+                <input id="username" type="text" placeholder="Username" minLength= "6" maxLength="10" pattern="^[a-zA-Z]*$" title="One word with no numbers or special characters." required /></label>
+              <br><br>
+              <label>
+                <input type="password" placeholder="Password" minLength="6" required /></label>
+              <br><br>
+              Please send me notifications about:
+              <br>
+              <ul>
+                <input type="checkbox" id="selection1" name="selection1" value="workout">
+                  <label for="selection1"> Workout Programs</label>
+                <input type="checkbox" id="selection2" name="selection2" value="recipes">
+                  <label for="selection2"> Recipes </label>
+                <input type="checkbox" id="selection3" name="selection3" value="news">
+                  <label for="selection3"> News </label>
+              </ul>
+              <hr>
+              <label>
+              <input type="checkbox" name="" required/>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</label>
+              <br><br>
+              <input type="submit" />
+              <p>Already have an account? <a href="#">Login</a></p>
+          </form></center>
 
-    
+            <br><br>
+          <div class="boxes" id="box1">
+              <p class="contact">No Pain No Gain | 123 Fitness Drive | <a href="mailto:sample@email.com">Contact Us</a> </p>
+              <p class="copyright">©2024 All Rights Reserved. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto non amet dolores error ipsum commodi eum, accusamus modi perferendis, exercitationem alias cumque inventore veniam reiciendis hic. Tempore officiis est earum!</p>
+            </div>
+          </div>
+
 </body>
 </html>
