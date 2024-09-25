@@ -51,13 +51,6 @@ nav a.active {
     align-items: center;
 }
 
-.flex-around {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
 h1 {
     font-family: custom;
     text-shadow: 5px 4px black;
@@ -105,3 +98,10 @@ h1 {
 .copyright {
     font-size: 10px;
 }  
+
+#firstName, #lastName, #email, #username, #password {
+    width: 15rem;
+    height: 2rem;
+    border-radius: 5px;
+    border-color: silver;
+}

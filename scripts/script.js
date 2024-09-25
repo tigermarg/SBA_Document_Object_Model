@@ -34,7 +34,7 @@ navMenuEl.style.height = `100%`;  //Set height of nav element
 
 navMenuEl.style.backgroundColor = `var(--nav-menu-bg)` //Set nav menu background color
 
-navMenuEl.classList.add(`flex-around`)  //Add flex-around class to nav menu
+navMenuEl.classList.add(`flex-ctr`)  //Add flex-ctr class to nav menu
 
 
 // Adding menu links
@@ -84,18 +84,27 @@ buttons.forEach((i) => {  //Loop through array of objects
 
 
 //Form Validation //Use confirm()
+
 let form = document.getElementsByTagName('form') //Select & cache form
 
 form[0].addEventListener('submit', (e)=>{ //Add `submit` event to form
     e.preventDefault()  //Call preventDefault 
     let response = confirm(`Are you sure you want to submit?`)  //Confirm submission
     if (response){  //If response is yes,
-      form[0].innerHTML = `Form Submitted`  //Form submits & displays `form submitted`
+      form[0].innerHTML = `Thank you for your submission!`  //Form submits & displays `form submitted`
   }
 })
   
 
-//Pre-select firstElementChild of form
-let listItem = document.querySelector(`ul`).firstElementChild;  //Select & cache first `ul` item 
-console.log(listItem)
-listItem.checked = true;  //Pre-check listItem by setting checked = true
+//Pre-select firstElementChild of `ul` on form //Form Validation `change` event
+let news = document.querySelector(`ul`).firstElementChild;  //Select & cache first `ul` item 
+console.log(news)
+news.checked = true;  //Pre-check listItem by setting checked = true
+
+news.addEventListener('change', (e)=>{  //If checkbox is unchecked, add `change` event listener
+  e.preventDefault()  //Call preventDefault
+  confirm( `Are you sure you don't want to hear about the latest news?`) //Confirm selection
+  
+})
+
+
