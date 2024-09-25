@@ -11,6 +11,10 @@ let buttons = [
   {text: 'login', href: '#'}
 ]
 
+//Add window.alert() message
+alert(`Must be 18 or older to sign up.`)
+
+//Main Element
 let mainEl = document.querySelector(`main`) //Cache main element
     // console.log(mainEl[0])
 
@@ -20,6 +24,7 @@ bodyEl.classList.add(`body-background`) //Add body-background class
 
 mainEl.innerHTML = `<h1>No Pain No Gain</h1>` //Main element content
 mainEl.classList.add(`flex-ctr`) //Add flex-ctr class
+
 
 //Add menu bar
 let navMenuEl = document.getElementById(`nav-menu`) //Select & cache `nav-menu` id
@@ -45,7 +50,6 @@ navLinks.forEach((link) => {  //Loop through navLinks array & for each `link` ob
     // console.log(menuLink)
     navMenuEl.appendChild(menuLink) //Add new element to navMenuEl
 
-
 })
 
 
@@ -67,28 +71,31 @@ navMenuEl.addEventListener(`click`, (e) => { //Add `click` event to nav menu
         })
   })
 
+
 // Adding Sign Up & Login buttons
-buttons.forEach((i) => {
+buttons.forEach((i) => {  //Loop through array of objects
   console.log(i)
-    let button = document.createElement('button');
-    button.setAttribute(`href`, i.href);
-    button.textContent = i.text;
-    navMenuEl.appendChild(button);
+    let button = document.createElement('button');  //Create button element
+    button.setAttribute(`href`, i.href);  //Add href attribute with value = href property of `link` object
+    button.textContent = i.text;  //Set button content = text property of `link` object
+    navMenuEl.appendChild(button);  //Add new element to navMenuEl
 
 })
 
 
-//Form Validation
+//Form Validation //Use confirm()
+let form = document.getElementsByTagName('form') //Select & cache form
 
-let userInput = document.getElementById('username')
-
-let form = document.getElementsByTagName('form') //gives you array-like object
-
-userInput.addEventListener('change', ()=>{
-    console.log(`I am typing ${userInput.value}`)
+form[0].addEventListener('submit', (e)=>{ //Add `submit` event to form
+    e.preventDefault()  //Call preventDefault 
+    let response = confirm(`Are you sure you want to submit?`)  //Confirm submission
+    if (response){  //If response is yes,
+      form[0].innerHTML = `Form Submitted`  //Form submits & displays `form submitted`
+  }
 })
+  
 
-form[0].addEventListener('submit', (e)=>{
-    e.preventDefault()
-    console.log(`Form Submitted`)
-})
+//Pre-select firstElementChild of form
+let listItem = document.querySelector(`ul`).firstElementChild;  //Select & cache first `ul` item 
+console.log(listItem)
+listItem.checked = true;  //Pre-check listItem by setting checked = true
