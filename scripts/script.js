@@ -118,17 +118,17 @@ form[0].addEventListener('submit', (e)=>{ //Add `submit` event to form
 
 
 //DocumentFragment
-let list = document.querySelector(`li`);
-let fitness = [`MOTIVATION`, `TRANSFORMATION`, `NUTRITION`];
+let list = document.querySelector(`li`);  //Select & cache list
+let fitness = [`MOTIVATION`, `TRANSFORMATION`, `NUTRITION`];  //Create array
 
-let fragment = new DocumentFragment();
+let fragment = new DocumentFragment();  //Create DocumentFragment object
 
-for (let i of fitness) {
-  let ul = document.createElement("ul");
-  ul.textContent = fitness;
-  fragment.append(ul);
+for (let i of fitness) {  //Loop through array
+  let ul = document.createElement("ul");  //Create unordered list
+  ul.textContent = fitness; //Set ul content = fitness elements
+  fragment.append(ul);  //Add ul to fragment
 }
 
-list.append(fragment);
+list.append(fragment); //Append fragment to list
 
-list.classList.add(`docfrag`)
+list.classList.add(`docfrag`) //Add css class to list
