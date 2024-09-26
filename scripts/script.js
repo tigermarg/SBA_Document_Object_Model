@@ -6,15 +6,17 @@ let navLinks = [
     {text: 'news', href: '#'},
   ];
 
+//Array for buttons
 let buttons = [
   {text: 'sign-up', href: '#'},
   {text: 'login', href: '#'}
 ]
 
-//Add window.alert() message
+//Add window.alert() message //BOM method
 alert(`Must be 18 or older to sign up.`)
 
-//Main Element
+//Main Element //Use of querySelector
+
 let mainEl = document.querySelector(`main`) //Cache main element
     // console.log(mainEl[0])
 
@@ -26,7 +28,8 @@ mainEl.innerHTML = `<h1>No Pain No Gain</h1>` //Main element content
 mainEl.classList.add(`flex-ctr`) //Add flex-ctr class
 
 
-//Add menu bar
+//Add menu bar //Use of getElementByID
+
 let navMenuEl = document.getElementById(`nav-menu`) //Select & cache `nav-menu` id
   // console.log(navMenuEl)
 
@@ -37,7 +40,8 @@ navMenuEl.style.backgroundColor = `var(--nav-menu-bg)` //Set nav menu background
 navMenuEl.classList.add(`flex-ctr`)  //Add flex-ctr class to nav menu
 
 
-// Adding menu links
+// Iterate over array of objects to add menu links //Use of createElement & appendChild
+
 navLinks.forEach((link) => {  //Loop through navLinks array & for each `link` object:
 
     let menuLink = document.createElement(`a`);  //Create <a> element
@@ -48,10 +52,13 @@ navLinks.forEach((link) => {  //Loop through navLinks array & for each `link` ob
 
     menuLink.textContent = link.text;  //Set newLink content = text property of `link` object
     // console.log(menuLink)
+
     navMenuEl.appendChild(menuLink) //Add new element to navMenuEl
 
 })
 
+
+//Toggle over menu items to change css class //Use of eventListener
 
 let navMenuLinks = document.querySelectorAll(`a`) //Cache all <a> elements of navMenuEl
     // console.log(navMenuLinks)
@@ -72,7 +79,8 @@ navMenuEl.addEventListener(`click`, (e) => { //Add `click` event to nav menu
   })
 
 
-// Adding Sign Up & Login buttons
+//Iterate over array of objects to add Sign-up & Login buttons to nav bar //Use of appendChild & createElement
+
 buttons.forEach((i) => {  //Loop through array of objects
   console.log(i)
     let button = document.createElement('button');  //Create button element
@@ -83,7 +91,20 @@ buttons.forEach((i) => {  //Loop through array of objects
 })
 
 
-//Form Validation //Use confirm()
+//Use of firstElementChild of `ul` to pre-select checkbox on form //Form Validation `change` event //Use confirm() BOM method //Use of eventListener
+
+let news = document.querySelector(`ul`).firstElementChild;  //Select & cache first `ul` item 
+console.log(news)
+news.checked = true;  //Pre-check listItem by setting checked = true
+
+news.addEventListener('change', (e)=>{  //If "news" checkbox is unchecked (`change` event listener)
+  e.preventDefault()  //Call preventDefault
+  confirm( `Are you sure you don't want to hear about the latest news?`) //Confirm selection
+  
+})
+
+
+//Form Validation `submit` event //Use confirm() BOM method //Modify innerHTML when form is submitted //Use of eventListener
 
 let form = document.getElementsByTagName('form') //Select & cache form
 
@@ -91,20 +112,6 @@ form[0].addEventListener('submit', (e)=>{ //Add `submit` event to form
     e.preventDefault()  //Call preventDefault 
     let response = confirm(`Are you sure you want to submit?`)  //Confirm submission
     if (response){  //If response is yes,
-      form[0].innerHTML = `Thank you for your submission!`  //Form submits & displays `form submitted`
+      form[0].innerHTML = `Thank you for your submission!`  //Form submits & displays "thank you" message
   }
 })
-  
-
-//Pre-select firstElementChild of `ul` on form //Form Validation `change` event
-let news = document.querySelector(`ul`).firstElementChild;  //Select & cache first `ul` item 
-console.log(news)
-news.checked = true;  //Pre-check listItem by setting checked = true
-
-news.addEventListener('change', (e)=>{  //If checkbox is unchecked, add `change` event listener
-  e.preventDefault()  //Call preventDefault
-  confirm( `Are you sure you don't want to hear about the latest news?`) //Confirm selection
-  
-})
-
-
