@@ -58,7 +58,7 @@ navLinks.forEach((link) => {  //Loop through navLinks array & for each `link` ob
 })
 
 
-//Toggle over menu items to change css class //Use of eventListener
+//Toggle over menu items to change css class //Use of eventListener & querySelectorAll
 
 let navMenuLinks = document.querySelectorAll(`a`) //Cache all <a> elements of navMenuEl
     // console.log(navMenuLinks)
@@ -96,7 +96,6 @@ buttons.forEach((i) => {  //Loop through array of objects
 let news = document.querySelector(`ul`).firstElementChild;  //Select & cache first `ul` item 
 console.log(news)
 news.checked = true;  //Pre-check `news` by setting checked = true
-
 
 news.addEventListener('change', (e)=>{  //If "news" checkbox is unchecked (`change` event listener)
   e.preventDefault()  //Call preventDefault
