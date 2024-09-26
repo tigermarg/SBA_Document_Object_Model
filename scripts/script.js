@@ -115,3 +115,20 @@ form[0].addEventListener('submit', (e)=>{ //Add `submit` event to form
       form[0].innerHTML = `Thank you for your submission!`  //Form submits & displays "thank you" message
   }
 })
+
+
+//DocumentFragment
+let list = document.querySelector(`li`);
+let fitness = [`MOTIVATION`, `TRANSFORMATION`, `NUTRITION`];
+
+let fragment = new DocumentFragment();
+
+for (let i of fitness) {
+  let ul = document.createElement("ul");
+  ul.textContent = fitness;
+  fragment.append(ul);
+}
+
+list.append(fragment);
+
+list.classList.add(`docfrag`)
