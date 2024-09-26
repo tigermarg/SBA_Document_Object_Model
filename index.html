@@ -18,10 +18,10 @@
               <!-- HTML attribute validations -->
                 <!-- pattern regex expressions says only accept upper/lowercase letters -->
               <label>
-                <input id="firstName" type="text" placeholder="First Name" pattern="^[a-zA-Z]*$" minLength = "1" required /></label>
+                <input id="firstName" type="text" placeholder="First Name" pattern="^[a-zA-Z]*$" minLength = "2" required /></label>
               <br><br>
               <label>
-                <input id="lastName" type="text" placeholder="Last Name" pattern="^[a-zA-Z]*$" minLength="1" required /></label>
+                <input id="lastName" type="text" placeholder="Last Name" pattern="^[a-zA-Z]*$" minLength="2" required /></label>
               <br><br>
               <label>
                 <input id="email" type="email" placeholder="E-mail" required /></label>
@@ -44,7 +44,7 @@
               </ul>
               <hr>
               <label>
-              <input type="checkbox" name="" required/>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</label> 
+              <input type="checkbox" id="terms" required/>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</label> 
               <br><br>
               <input type="submit" />
               <p>Already have an account? <a href="#">Login</a></p>

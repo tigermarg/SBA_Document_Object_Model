@@ -95,12 +95,17 @@ buttons.forEach((i) => {  //Loop through array of objects
 
 let news = document.querySelector(`ul`).firstElementChild;  //Select & cache first `ul` item 
 console.log(news)
-news.checked = true;  //Pre-check listItem by setting checked = true
+news.checked = true;  //Pre-check `news` by setting checked = true
+
 
 news.addEventListener('change', (e)=>{  //If "news" checkbox is unchecked (`change` event listener)
   e.preventDefault()  //Call preventDefault
-  confirm( `Are you sure you don't want to hear about the latest news?`) //Confirm selection
-  
+
+  if(news.checked == false){
+    confirm( `Are you sure you don't want to hear about the latest news?`) //If unchecking, confirm selection
+  } else {
+    confirm(`Great choice!`) //If checked again
+  }
 })
 
 
